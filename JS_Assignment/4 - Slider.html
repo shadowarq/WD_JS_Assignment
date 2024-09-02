@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: black;
+      }
+
+      .main {
+        height: auto;
+        width: auto;
+        margin-top: 200px;
+        position: relative;
+      }
+      .sub {
+        height: 400px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        transition: 0.5s ease;
+      }
+      .sub div {
+        height: 250px;
+        width: 250px;
+        margin-top: 75px;
+        transition: 0.5s ease;
+      }
+
+      .btn {
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        gap: 200px;
+      }
+      .sub div {
+        width: 250px;
+        display: none;
+      }
+      div.displaySlide {
+        display: block;
+      }
+      button {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border: none;
+        height: 50px;
+        width: 50px;
+        font-size: 69px;
+        padding-bottom: 85px;
+        padding-right: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="sub">
+        <div class="box1" style="background-color: aqua"></div>
+        <div class="box2" style="background-color: greenyellow"></div>
+        <div class="box3" style="background-color: red"></div>
+        <div class="box4" style="background-color: blue"></div>
+        <div class="box5" style="background-color: yellow"></div>
+      </div>
+      <div class="btn">
+        <button id="prevBtn" onclick="prevSlide()">←</button>
+        <button id="nextBtn" onclick="nextSlide()">→</button>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    const slides = document.querySelectorAll(".sub div");
+    let slideIndex = 0;
+
+    document.addEventListener("DOMContentLoaded", initializeSlider);
+
+    function initializeSlider() {
+      if (slides.length > 0) {
+        slides[slideIndex].classList.add("displaySlide");
+      }
+    }
+    function showSlide(index) {
+      if (index >= slides.length) {
+        slideIndex = 0;
+      } else if (index < 0) {
+        slideIndex = slides.length - 1;
+      }
+
+      slides.forEach((slide) => {
+        slide.classList.remove("displaySlide");
+      });
+      slides[slideIndex].classList.add("displaySlide");
+    }
+    function prevSlide() {
+      slideIndex--;
+      showSlide(slideIndex);
+    }
+    function nextSlide() {
+      slideIndex++;
+      showSlide(slideIndex);
+    }
+  </script>
+</html>

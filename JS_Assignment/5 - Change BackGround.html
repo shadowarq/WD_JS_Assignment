@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change BackGround Color</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        height: 991px;
+        width: auto;
+        background-color: rgb(146, 7, 193);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        padding: 15px 30px;
+        background-color: aqua;
+        border: none;
+        border-radius: 5px;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      #code {
+        font-size: 25px;
+        margin-top: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button onclick="bgc()">Change BG Color</button>
+      <p id="code"></p>
+    </div>
+  </body>
+  <script>
+    function bgc() {
+      var value = document.getElementsByClassName("main")[0];
+
+      if (value.style.backgroundColor == "rgb(146, 7, 193)") {
+        value.style.backgroundColor = "rgb(25, 229, 110)";
+      } else {
+        value.style.backgroundColor = "rgb(146, 7, 193)";
+      }
+    }
+  </script>
+</html>

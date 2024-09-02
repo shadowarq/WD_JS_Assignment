@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marksheet for Information Technology</title>
+    <style>
+      .main {
+        margin: 175px 650px;
+        height: 560px;
+        width: 600px;
+        border: 2px solid black;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      .sub {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      label {
+        font-size: 20px;
+      }
+
+      input {
+        width: 250px;
+      }
+
+      .result {
+        padding: 5px 322px;
+      }
+
+      button {
+        height: 40px;
+        width: 80px;
+      }
+
+      .ans {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .ans input {
+        width: 190px;
+        border: 0;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Marksheet for Information Technology</h1>
+
+      <h2>Enter Marks</h2>
+      <form action="">
+        <div class="sub">
+          <label for="">1. C Language:</label>
+          <input type="text" id="c" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">2. C++ Language:</label>
+          <input type="text" id="cpp" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">3. Database:</label>
+          <input type="text" id="db" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">4. HTML:</label>
+          <input type="text" id="html" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">5. CSS:</label>
+          <input type="text" id="css" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">6. php:</label>
+          <input type="text" id="php" value="1" />
+        </div>
+        <div class="sub">
+          <label for="">7. Core java:</label>
+          <input type="text" id="java" value="1" />
+        </div>
+      </form>
+      <div class="result">
+        <button onclick="calculate()">Result</button>
+      </div>
+      <div class="ans">
+        <input type="text" name="" id="total" />
+        <input type="text" name="" id="percentage" />
+      </div>
+    </div>
+  </body>
+  <script>
+    function calculate() {
+      var c = parseInt(document.getElementById("c").value);
+      var cpp = parseInt(document.getElementById("cpp").value);
+      var db = parseInt(document.getElementById("db").value);
+      var html = parseInt(document.getElementById("html").value);
+      var css = parseInt(document.getElementById("css").value);
+      var php = parseInt(document.getElementById("php").value);
+      var java = parseInt(document.getElementById("java").value);
+      var total1 = document.getElementById("total");
+      var percentage1 = document.getElementById("percentage");
+
+      var total = c + cpp + db + html + css + php + java;
+      var percentage = (total / 350) * 100;
+
+      total1.value = "Total is :" + total + "/350";
+      percentage1.value = "Percentage is:" + percentage.toFixed(2) + "%";
+      // document.getElementById("result").innerHTML =
+      //   "Total is: " +
+      //   total +
+      //   "/350<br>" +
+      //   "Percentage is: " +
+      //   percentage.toFixed(1) +
+      //   "%";
+    }
+  </script>
+</html>
